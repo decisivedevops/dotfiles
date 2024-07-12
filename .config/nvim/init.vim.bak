@@ -1,0 +1,141 @@
+let mapleader = "b"
+
+call plug#begin()
+
+" List your plugins here
+Plug 'preservim/nerdtree'
+call plug#end()
+
+" nerdtree config
+let NERDTreeShowHidden=1
+
+let g:NERDTreeWinPos = "right"
+
+" Start NERDTree and put the cursor back in the other window.
+autocmd VimEnter * NERDTree | wincmd p
+
+" Close the tab if NERDTree is the only window remaining in it.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
+
+nnoremap <C-t> :NERDTreeToggle<CR>
+
+" Function to toggle focus between NERDTree and the edit window
+function! ToggleNERDTreeFocus()
+  if exists("t:NERDTreeBufName") && bufwinnr(t:NERDTreeBufName) != -1
+    if winnr('$') > 1 && winnr() == bufwinnr(t:NERDTreeBufName)
+      wincmd p
+    else
+      exec bufwinnr(t:NERDTreeBufName) . 'wincmd w'
+    endif
+  endif
+endfunction
+
+" Map <leader>e to the toggle function
+nnoremap <silent> <leader>e :call ToggleNERDTreeFocus()<CR>
+
+" Map <leader><space> to clear search highlight
+nnoremap <silent> <leader><space> :noh<CR>
+
+
+" Enable relative line numbers
+set relativenumber
+
+" Function to toggle terminal
+function! ToggleTerminal()
+  let term_buf = -1
+  " Check for existing terminal buffer
+  for buf in range(1, bufnr('$'))
+    if getbufvar(buf, '&buftype') == 'terminal'
+      let term_buf = buf
+      break
+    endif
+  endfor
+
+  " If terminal buffer exists
+  if term_buf != -1
+    let term_win = bufwinnr(term_buf)
+    " If terminal buffer is visible, hide it
+    if term_win != -1
+      if winnr() == term_win
+        " Exit terminal insert mode before switching
+        call feedkeys("\<C-\\>\<C-n>")
+        hide
+      else
+        " Focus the terminal window
+        exec term_win . 'wincmd w'
+      endif
+    else
+      " If the terminal buffer is hidden, open it in a new split at the bottom
+      botright split
+      exec 'buffer ' . term_buf
+    endif
+  else
+    " If no terminal buffer exists, create a new one in a horizontal split at the bottom
+    botright split term://$SHELL
+  endif
+endfunction
+
+" Map <leader>t to the toggle function
+nnoremap <silent> <leader>t :call ToggleTerminal()<CR>
+
+" Map bi to exit terminal insert mode
+tnoremap <silent> bi <C-\><C-n>
+
+
+" Function to get the directory of the previous non-terminal buffer
+function! GetValidFileBufferDir()
+  " Get the list of all buffers
+  let buffers = filter(range(1, bufnr('$')), 'buflisted(v:val)')
+  " Get the current buffer number
+  let current_bufnr = bufnr('%')
+
+  " Iterate over buffers in reverse order to find the last valid file buffer
+  for buf in reverse(buffers)
+    if buf != current_bufnr && bufname(buf) !~ '^term:' && getbufvar(buf, '&buftype') == ''
+      return fnamemodify(bufname(buf), ':p:h')
+    endif
+  endfor
+  return ''
+endfunction
+
+" Function to get the directory of the current or previous non-terminal buffer
+function! GetCurrentOrPreviousFileDir()
+  let current_bufnr = bufnr('%')
+  let current_bufname = bufname(current_bufnr)
+
+  " Check if the current buffer is a terminal
+  if current_bufname =~ '^term:' || getbufvar(current_bufnr, '&buftype') == 'terminal'
+    " Fall back to the previous non-terminal buffer
+    return GetValidFileBufferDir()
+  else
+    " Return the directory of the current buffer
+    return fnamemodify(current_bufname, ':p:h')
+  endif
+endfunction
+
+" Function to change terminal directory to the current or previous non-terminal buffer's directory
+function! ChangeTermDir()
+  " Get the directory of the current or previous non-terminal buffer
+  let file_dir = GetCurrentOrPreviousFileDir()
+  if file_dir == ''
+    echo "No valid file buffer found"
+    return
+  endif
+  let file_dir_escaped = shellescape(file_dir)
+
+  " Check if in a terminal buffer
+  if &buftype == 'terminal'
+    " Send the cd command to the terminal
+    call jobsend(b:terminal_job_id, "cd " . file_dir_escaped . "\n")
+  else
+    echo "Not in a terminal buffer"
+  endif
+endfunction
+
+" Create a custom command for changing the terminal directory
+command! TermCd call ChangeTermDir()
+
+" Map <leader>cd to the custom command
+nnoremap <silent> <leader>cd :TermCd<CR>
+tnoremap <silent> <leader>cd <C-\><C-n>:TermCd<CR>
+

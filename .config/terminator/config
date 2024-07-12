@@ -1,0 +1,143 @@
+[global_config]
+  dbus = False
+  borderless = True
+  tab_position = bottom
+  title_hide_sizetext = True
+  enabled_plugins = LaunchpadBugURLHandler, LaunchpadCodeURLHandler, APTURLHandler, TerminatorThemes
+  case_sensitive = False
+[keybindings]
+  switch_to_tab_1 = <Primary>exclam
+  switch_to_tab_2 = <Primary>at
+  switch_to_tab_3 = <Primary>numbersign
+  switch_to_tab_4 = <Primary>dollar
+[profiles]
+  [[default]]
+    icon_bell = False
+    background_color = "#303446"
+    cursor_color = "#f2d5cf"
+    cursor_color_fg = False
+    font = UbuntuMono Nerd Font 13
+    foreground_color = "#c6d0f5"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#51576d:#e78284:#a6d189:#e5c890:#8caaee:#f4b8e4:#81c8be:#b5bfe2:#626880:#e78284:#a6d189:#e5c890:#8caaee:#f4b8e4:#81c8be:#a5adce"
+    use_system_font = False
+  [[Tomorrow]]
+    icon_bell = False
+    background_color = "#141414"
+    cursor_color = "#ffffff"
+    cursor_color_fg = False
+    font = MonoLisa Variable 11
+    foreground_color = "#ffffd4"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#141414:#c06d44:#afb97a:#c2a86c:#44474a:#b4be7c:#778385:#ffffd4:#262626:#de7c4c:#ccd88c:#e2c47e:#5a5e62:#d0dc8e:#8a989b:#ffffd4"
+    use_system_font = False
+  [[tokyonight]]
+    icon_bell = False
+    background_color = "#1a1b26"
+    cursor_color = "#c0caf5"
+    cursor_color_fg = False
+    font = MonoLisa Variable 11
+    foreground_color = "#c0caf5"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#15161e:#f7768e:#9ece6a:#e0af68:#7aa2f7:#bb9af7:#7dcfff:#a9b1d6:#414868:#f7768e:#9ece6a:#e0af68:#7aa2f7:#bb9af7:#7dcfff:#c0caf5"
+    use_system_font = False
+  [[The Hulk]]
+    icon_bell = False
+    background_color = "#1b1d1e"
+    cursor_color = "#16b61b"
+    cursor_color_fg = False
+    font = MonoLisa Variable 11
+    foreground_color = "#b5b5b5"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#1b1d1e:#269d1b:#13ce30:#63e457:#2525f5:#641f74:#378ca9:#d9d8d1:#505354:#8dff2a:#48ff77:#3afe16:#506b95:#72589d:#4085a6:#e5e6e1"
+    use_system_font = False
+  [[SynthwaveAlpha]]
+    icon_bell = False
+    background_color = "#241b30"
+    cursor_color = "#f2f2e3"
+    cursor_color_fg = False
+    font = MonoLisa Variable 11
+    foreground_color = "#f2f2e3"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#241b30:#e60a70:#00986c:#adad3e:#6e29ad:#b300ad:#00b0b1:#b9b1bc:#7f7094:#e60a70:#0ae4a4:#f9f972:#aa54f9:#ff00f6:#00fbfd:#f2f2e3"
+    use_system_font = False
+  [[Teerb]]
+    icon_bell = False
+    background_color = "#262626"
+    cursor_color = "#e4c9af"
+    cursor_color_fg = False
+    font = MonoLisa Variable 11
+    foreground_color = "#d0d0d0"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#1c1c1c:#d68686:#aed686:#d7af87:#86aed6:#d6aed6:#8adbb4:#d0d0d0:#1c1c1c:#d68686:#aed686:#e4c9af:#86aed6:#d6aed6:#b1e7dd:#efefef"
+    use_system_font = False
+  [[Solarized Darcula]]
+    icon_bell = False
+    background_color = "#3d3f41"
+    cursor_color = "#708284"
+    cursor_color_fg = False
+    font = MonoLisa Variable 11
+    foreground_color = "#d2d8d9"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#25292a:#f24840:#629655:#b68800:#2075c7:#797fd4:#15968d:#d2d8d9:#25292a:#f24840:#629655:#b68800:#2075c7:#797fd4:#15968d:#d2d8d9"
+    use_system_font = False
+  [[Shades-of-purple]]
+    icon_bell = False
+    background_color = "#341d57"
+    cursor_color = "#f7dd00"
+    cursor_color_fg = False
+    font = MonoLisa Variable 11
+    foreground_color = "#ffffff"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#000000:#f90029:#00ef00:#f7dd00:#9500ff:#ff006c:#5fffff:#ffffff:#5c5c61:#ec3a37:#3ad900:#fadd00:#6943ff:#fb94ff:#80fcff:#ffffff"
+    use_system_font = False
+  [[Rose Pine]]
+    icon_bell = False
+    background_color = "#191724"
+    cursor_color = "#9ccfd8"
+    cursor_color_fg = False
+    font = MonoLisa Variable 11
+    foreground_color = "#e0def4"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#26233A:#eb6f91:#9ccfd8:#f6c177:#31748f:#65618d:#c4a7e7:#d3d7cf:#26233a:#eb6f91:#9ccfd8:#f6c177:#31748f:#65618d:#c4a7e7:#eeeeec"
+    use_system_font = False
+  [[rose-pine-dawn]]
+    icon_bell = False
+    background_color = "#faf4ed"
+    cursor_color = "#575279"
+    cursor_color_fg = False
+    font = MonoLisa Variable 11
+    foreground_color = "#575279"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#f2e9e1:#b4637a:#56949f:#ea9d34:#286983:#907aa9:#d7827e:#575279:#9893a5:#b4637a:#56949f:#ea9d34:#286983:#907aa9:#d7827e:#575279"
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+[plugins]
