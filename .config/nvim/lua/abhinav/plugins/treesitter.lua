@@ -34,6 +34,7 @@ return {
         "vimdoc",
         "python",
         "hcl",
+        "ssh_config",
       },
       incremental_selection = {
         enable = true,

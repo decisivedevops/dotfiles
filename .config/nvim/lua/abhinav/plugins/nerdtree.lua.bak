@@ -1,0 +1,32 @@
+return {
+  "preservim/nerdtree",
+  dependencies = "ryanoasis/vim-devicons",
+  config = function()
+    -- Set NERDTree options
+    vim.g.NERDTreeShowHidden = 1
+    vim.g.NERDTreeMinimalMenu = 1
+    vim.g.NERDTreeDirArrowExpandable = "" -- arrow when folder is closed
+    vim.g.NERDTreeDirArrowCollapsible = "" -- arrow when folder is open
+
+    -- Automatically close NERDTree if it's the only window left
+    vim.cmd([[
+      autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+    ]])
+
+    -- Disable netrw to avoid conflicts
+    vim.g.loaded_netrw = 1
+    vim.g.loaded_netrwPlugin = 1
+
+    -- Initialize vim-devicons and set up custom icons
+    require'nvim-web-devicons'.setup { }
+
+    -- Set keymaps
+    local keymap = vim.keymap -- for conciseness
+
+    keymap.set("n", "<leader>ee", "<cmd>NERDTreeToggle<CR>", { desc = "Toggle file explorer" }) -- toggle file explorer
+    keymap.set("n", "<leader>ef", "<cmd>NERDTreeFind<CR>", { desc = "Toggle file explorer on current file" }) -- toggle file explorer on current file
+    keymap.set("n", "<leader>ec", "<cmd>NERDTreeClose<CR>", { desc = "Close file explorer" }) -- close file explorer
+    keymap.set("n", "<leader>er", "<cmd>NERDTreeRefreshRoot<CR>", { desc = "Refresh file explorer" }) -- refresh file explorer
+  end
+}
+

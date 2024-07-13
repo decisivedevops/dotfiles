@@ -35,7 +35,6 @@ zinit light Aloxaf/fzf-tab
 # Add in snippets
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
-zinit snippet OMZP::archlinux
 zinit snippet OMZP::aws
 zinit snippet OMZP::kubectl
 zinit snippet OMZP::kubectx
@@ -80,17 +79,6 @@ alias ls='ls --color -ltr'
 alias vim='nvim'
 alias c='clear'
 alias assume="source assume"
-
-# Add to your .zshrc file
-function cd_to_file_dir() {
-    if [ -n "$CURRENT_FILE_DIR" ]; then
-        cd "$CURRENT_FILE_DIR"
-    else
-        echo "CURRENT_FILE_DIR is not set"
-    fi
-}
-
-
 
 # Shell integrations
 eval "$(fzf --zsh)"
