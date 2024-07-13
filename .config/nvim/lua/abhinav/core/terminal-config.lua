@@ -90,8 +90,8 @@ end
 vim.api.nvim_create_user_command('TermCd', ChangeTermDir, {})
 
 -- Mappings
-vim.api.nvim_set_keymap('n', '<leader>t', ':lua ToggleTerminal()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'bt', ':lua ToggleTerminal()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('t', 'bi', '<C-\\><C-n>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>cd', ':TermCd<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('t', '<leader>cd', '<C-\\><C-n>:TermCd<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'bcd', ':TermCd<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', 'bcd', '<C-\\><C-n>:TermCd<CR>', { noremap = true, silent = true })
 
