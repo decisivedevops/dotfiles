@@ -72,8 +72,8 @@ vim.api.nvim_set_keymap('c', '<Left>', '<NOP>', { noremap = true, silent = true 
 vim.api.nvim_set_keymap('c', '<Right>', '<NOP>', { noremap = true, silent = true })
 
 -- Disable arrow keys in terminal mode
-vim.api.nvim_set_keymap('t', '<Up>', '<NOP>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('t', '<Down>', '<NOP>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('t', '<Left>', '<NOP>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('t', '<Right>', '<NOP>', { noremap = true, silent = true })
-
+-- vim.api.nvim_set_keymap('t', '<Up>', '<NOP>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('t', '<Down>', '<NOP>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('t', '<Left>', '<NOP>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('t', '<Right>', '<NOP>', { noremap = true, silent = true })
+--
