@@ -85,5 +85,3 @@ alias assume="source assume"
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
